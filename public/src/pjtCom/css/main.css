@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+/**
+* --------------------------------
+* Main CSS
+* --------------------------------
+*/
+
+.visual_area { position:relative; height:860px; overflow:hidden;  }
+.visual_area .visual { opacity:0; position:absolute; top:0; left:0; transition-duration:1.5s; }
+.visual_area .visual .txt { opacity:0; position:absolute; z-index:1; top:50%; left:50%; transform:translate(-50%, -50%); font-size:56px; line-height:70px; text-align:center; color:#fff; }
+.visual_area .visual .img { transform:scale(1.1); transition-delay:1s; }
+.visual_area .pagination { position:absolute; z-index:1; top:633px; left:0; width:100%; font-size:0; text-align:center; }
+.visual_area .pagination span { display:inline-block; width:13px; height:13px; margin-left:10px; border:2px solid #fff; border-radius:100%; background:none; box-sizing:border-box; cursor:pointer; }
+.visual_area .pagination span:first-child { margin-left:0; }
+.visual_area .pagination span.active { background:#fff; }
+.visual_area .visual.first { opacity:1; }
+.visual_area .visual.loading { display:none; }
+.visual_area .visual.show { opacity:1; z-index:1; }
+.visual_area .visual.show .txt { opacity:1; transform:translate(-50%, -60%); transition-duration:1s; }
+.visual_area .visual.show .img { transform:scale(1); transition-duration:10s; }
+.visual_area .btn_area { position:absolute; z-index:1; top:437px; left:50%; transform:translateX(-50%); width:1180px; }
+.visual_area .btn_area button { position:absolute !important; z-index:1; top:0; width:31px; height:57px !important; text-indent:-9999px; background:url(/pjtCom/images/main/btn_direction.png) no-repeat 0 0 !important; }
+.visual_area .btn_area .btn_prev { left:0; }
+.visual_area .btn_area .btn_next { right:0; transform:rotate(180deg); }
+
+.infra_area { width:1180px; margin:0 auto; padding:120px 0 120px 0 !important; }
+.infra_area .header_area { position:relative; text-align:center; }
+.infra_area .header_area .tit { font-size:30px; color:#231f20; }
+.infra_area .header_area .desc { font-size:16px; color:#807e7e; margin:14px 0 50px 0; }
+.infra_list { overflow:hidden; }
+.infra_list li { float:left; position:relative; text-align:center; margin-left:8px; }
+.infra_list li:first-child { margin-left:0; }
+.infra_list b { position:absolute; top:50%; left:0; transform:translateY(-50%); width:100%; font-size:30px; color:#fff; }
+
+.product_area { margin-top:80px; padding:0 0 120px 0 !important; background:url(/pjtCom/images/main/bg_product.jpg) no-repeat center bottom; }
+.product_area .header_area { position:relative; text-align:center; }
+.product_area .header_area .tit { font-size:30px; color:#231f20; }
+.product_area .header_area .desc { font-size:16px; color:#807e7e; margin:14px 0 50px 0; }
+.product_list { font-size:0; text-align:center; }
+.product_list li { display:inline-block; position:relative; text-align:center; margin-left:23px; box-shadow:0 1px 5px rgba(0, 0, 0, 0.08); }
+.product_list li:first-child { margin-left:0; }
+.product_list .txt_area { position:relative; height:190px; padding:32px 0 0 0; background:#fff; box-sizing:border-box; }
+.product_list .txt_area:before { content:""; position:absolute; top:76px; left:50%; height:59px; transform:translateX(-50%); background:url(/pjtCom/images/main/icon_product.png) no-repeat 0 0; }
+.product_list .txt_area:after { content:""; position:absolute; top:160px; left:50%; transform:translateX(-50%); width:33px; height:1px; background:#949494; }
+.product_list .about .txt_area:before { width:72px; background-position:0 0; }
+.product_list .pb .txt_area:before { width:46px; background-position:-76px 0; }
+.product_list .global .txt_area:before { width:59px; background-position:-127px 0; }
+.product_list .bakery .txt_area:before { width:60px; background-position:-191px 0; }
+.product_list b { font-size:22px; text-align:center; color:#231f20; }
+
+.seminar_area { position:relative; padding:82px 0 120px !important; background:url(/pjtCom/images/main/bg_seminar.jpg) no-repeat 0 0; overflow:hidden; }
+.seminar_area .header_area { position:relative; width:1180px; text-align:center; margin:0 auto; }
+.seminar_area .header_area .tit { font-size:30px; color:#231f20; }
+.seminar_area .header_area .desc { font-size:16px; color:#807e7e; margin:14px 0 50px 0; }
+.seminar_area .header_area .btn_more { position:absolute; top:95px; right:0; height:auto; }
+.seminar_area .header_area .btn_more:after { content:""; display:inline-block; width:11px; height:11px; margin-left:6px; background:url(/pjtCom/images/common/icon_more_11x11.png) no-repeat 0 0; }
+.seminar_area .today { font-size:22px; color:#000; text-align:center; }
+.seminar_area .inner { width:1105px; margin:0 auto; overflow:hidden; }
+.seminar_area .seminar_list { position:relative; width:1104px; margin:60px auto 0; overflow:hidden; }
+.seminar_area .seminar_list li { float:left; position:relative; }
+.seminar_area .seminar_list li:after { content:""; position:absolute; top:0; left:0; width:1px; height:227px; background:#e8e8e8; }
+.seminar_area .seminar_list li:first-child:after { display:none; }
+.seminar_area .seminar_list li a { display:block; width:221px; height:268px; padding:10px 20px 0; box-sizing:border-box; }
+.seminar_area .seminar_list .category { display:block; width:100px; height:20px; text-align:center; line-height:20px; color:#fff; margin:0 auto; border-radius:20px; }
+.seminar_area .seminar_list .end .category { background:#949494; }
+.seminar_area .seminar_list .finish .category { background:#e6c378; }
+.seminar_area .seminar_list .ing .category { background:#e67878; }
+.seminar_area .seminar_list .date { font-size:54px; text-align:center; line-height:84px; color:#949494; margin-top:14px; }
+.seminar_area .seminar_list .day { font-size:14px; text-align:center; color:#949494; }
+.seminar_area .seminar_list .subject { height:34px; font-size:14px; text-align:center; line-height:17px; color:#555; margin-top:24px; }
+.seminar_area .seminar_list .state { display:block; width:110px; height:40px; font-size:14px; text-align:center; line-height:38px; margin:27px auto 0; border-radius:40px; box-sizing:border-box; }
+.seminar_area .seminar_list .end .state { color:#949494; border:1px solid #949494; }
+.seminar_area .seminar_list .finish .state { color:#949494; border:1px solid #949494; }
+.seminar_area .seminar_list .ing .state { color:#ce462d; border:1px solid #ce462d; }
+.seminar_area .btn_area { position:absolute; z-index:1; top:345px; left:50%; transform:translateX(-50%); width:1180px; }
+.seminar_area .btn_area button { position:absolute !important; z-index:1; top:0; width:31px; height:64px !important; text-indent:-9999px; background:url(/pjtCom/images/main/btn_direction.png) no-repeat -36px 0 !important; }
+.seminar_area .btn_area .btn_prev { left:0; }
+.seminar_area .btn_area .btn_next { right:0; transform:rotate(180deg); }
+
+.recipe_area { position:relative; padding:82px 0 120px !important; overflow:hidden; }
+.recipe_area .header_area { position:relative; width:1180px; text-align:center; margin:0 auto; }
+.recipe_area .header_area .tit { font-size:30px; color:#231f20; }
+.recipe_area .header_area .desc { font-size:16px; color:#807e7e; margin:14px 0 50px 0; }
+.recipe_area .header_area .btn_more { position:absolute; top:95px; right:0; height:auto; }
+.recipe_area .header_area .btn_more:after { content:""; display:inline-block; width:11px; height:11px; margin-left:6px; background:url(/pjtCom/images/common/icon_more_11x11.png) no-repeat 0 0; }
+.recipe_area .inner { width:1042px; margin:0 auto; overflow:hidden; }
+.recipe_area .recipe_list { position:relative; height:490px; margin:0 auto; overflow:hidden; }
+.recipe_area .recipe_list li { float:left; position:relative; width:304px; height:436px; margin-left:65px; }
+.recipe_area .recipe_list li:first-child { margin-left:0; }
+.recipe_area .recipe_list li .info { display:block; text-align:center; }
+.recipe_area .recipe_list li .info .img { border-radius:10px; overflow:hidden; }
+.recipe_area .recipe_list li .info .category { display:block; width:88px; height:24px; text-align:center; line-height:22px; border-radius:24px; margin:24px auto 0; box-sizing:border-box; }
+.recipe_area .recipe_list li .info .category.western { color:#e10a00; border:1px solid #e60800; }
+.recipe_area .recipe_list li .info .category.chinese { color:#261000; border:1px solid #3b2515; }
+.recipe_area .recipe_list li .info .category.baking { color:#d0a82c; border:1px solid #ebca76; }
+.recipe_area .recipe_list li .info .sort { display:inline-block; font-size:14px; color:#949494; margin:15px 0 8px;  }
+.recipe_area .recipe_list li .info .name { font-size:24px; color:#555; }
+.recipe_area .recipe_list li .menu { display:none; position:absolute; top:0; left:0; width:100%; height:327px; font-size:0; border-radius:10px; background:rgba(0, 0, 0, 0.5); overflow:hidden; }
+.recipe_area .recipe_list li .menu [class^="btn"] { color:#fff; box-sizing:border-box; background:none; }
+.recipe_area .recipe_list li .menu .btn_recipe { width:100%; height:277px; font-weight:600; font-size:22px; line-height:327px; }
+.recipe_area .recipe_list li .menu .btn_calculator { width:50%; height:50px; line-height:50px; font-size:18px; background:rgba(255, 226, 207, 0.5); }
+.recipe_area .recipe_list li .menu .btn_counsel { width:50%; height:50px; line-height:50px; font-size:18px; border-left:1px solid #d0c9c4; background:rgba(255, 226, 207, 0.5); }
+.recipe_area .recipe_list li:nth-child(3n+2) { margin-top:27px; }
+.recipe_area .recipe_list li:nth-child(3n+2) .img { position:absolute; top:135px; }
+.recipe_area .recipe_list li:nth-child(3n+2) .menu { position:absolute; top:135px; }
+.recipe_area .recipe_list li:nth-child(3n+3) { margin-top:41px; }
+.recipe_area .recipe_list li:hover .menu { display:block; }
+
+.recipe_area .btn_area { position:absolute; z-index:1; top:345px; left:50%; transform:translateX(-50%); width:1180px; }
+.recipe_area .btn_area button { position:absolute !important; z-index:1; top:0; width:31px; height:64px !important; text-indent:-9999px; background:url(/pjtCom/images/main/btn_direction.png) no-repeat -36px 0 !important; }
+.recipe_area .btn_area .btn_prev { left:0; }
+.recipe_area .btn_area .btn_next { right:0; transform:rotate(180deg); }
+
+.magazine_area { position:relative; width:1180px; text-align:center; margin:0 auto; padding:82px 0 120px !important; }
+.magazine_area .header_area { position:relative; text-align:center; }
+.magazine_area .header_area .tit { font-size:30px; color:#231f20; }
+.magazine_area .header_area .desc { font-size:16px; color:#807e7e; margin:14px 0 50px 0; }
+.magazine_area .header_area .btn_more { position:absolute; top:65px; right:0; height:auto; }
+.magazine_area .header_area .btn_more:after { content:""; display:inline-block; width:11px; height:11px; margin-left:6px; background:url(/pjtCom/images/common/icon_more_11x11.png) no-repeat 0 0; }
+.magazine_area .inner { padding:0; }
+.magazine_area .bbs_masonry_list { margin:0; }
+.magazine_area .bbs_masonry_list .subject { text-align:left; }
+
+.bottom_area { border-top:1px solid #e4e4e4; }
+.bottom_area .inner { width:1180px; margin:0 auto; padding:34px 0 38px; overflow:hidden; }
+.bottom_area .notice_area { float:left; }
+.bottom_area .notice_area .header_area { position:relative; }
+.bottom_area .notice_area .header_area .tit { font-weight:400; font-size:21px; color:#555; }
+.bottom_area .notice_area .header_area .btn_more { position:absolute; top:5px; right:0; height:auto; font-weight:400; font-size:14px; color:#555; }
+.bottom_area .notice_area .header_area .btn_more:after { content:""; display:inline-block; width:11px; height:11px; margin-left:6px; background:url(/pjtCom/images/common/icon_more_11x11.png) no-repeat 0 0; }
+.bottom_area .notice_list { margin-top:10px; overflow:hidden; }
+.bottom_area .notice_list li { overflow:hidden; }
+.bottom_area .notice_list .subject { display:block; float:left; width:230px; height:27px; font-size:14px; letter-spacing:0; line-height:27px; color:#807e7e; }
+.bottom_area .notice_list .date { display:block; float:left; width:73px; font-size:12px; height:27px; letter-spacing:0; line-height:27px; color:#807e7e; }
+.bottom_area .menu_list { float:left; margin:10px 0 0 145px; }
+.bottom_area .menu_list li { float:left; margin-left:90px; }
+.bottom_area .menu_list li:first-child { margin-left:0; }
+.bottom_area .menu_list a { display:block; font-weight:400; font-size:21px; color:#555; }
+.bottom_area .menu_list a:before { content:""; display:block; height:52px; margin:0 auto 18px; background:url(/pjtCom/images/main/icon_bottom.png) no-repeat 0 0; }
+.bottom_area .menu_list .calculator a:before { width:49px; background-position:0 0; }
+.bottom_area .menu_list .qna a:before { width:50px; background-position:-54px 0; }
+.bottom_area .menu_list .form a:before { width:47px; background-position:-109px 0; }
+.bottom_area .menu_list .event a:before { width:44px; background-position:-161px 0; }

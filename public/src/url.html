@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<script type="text/javascript" src="./pjtCom/js/lib/jquery-3.3.1.min.js"></script>
+<title>SERVEQ URL</title>
+<style>
+	*{margin:0; padding:0;}
+	html, body {background-color:#fff;}
+	dl,ul,ol,menu,li {list-style:none}
+	img {border:0 none;vertical-align:top;}
+	table {border-collapse:collapse;border-spacing:0}
+	a {text-decoration:none;border-collapse:separate;color:#666;}
+	label {cursor:pointer;}
+	p { word-wrap:break-word; word-break:break-all;}
+	textarea {resize:none; }
+	#wrap {margin:0;padding:0;}
+	h2 {position:relative;padding:5px 0 5px 10px;font-size:14px;line-height:30px;font-weight:bold; cursor:pointer;}
+	h2 span {font-size:11px;font-weight:normal;}
+	h2 .enddate {position:absolute;top:12px;right:10px;display:inline-block;color:#888;text-align:right;font-size:12px;line-height:24px;}
+	.sti {border-top:2px solid #585858;color:#333;background-color:#f7f7f7;}
+	.header {padding:20px;background-color:#fff;border-bottom:1px solid #585858;text-align:center; }
+	.folderbox {padding:0 20px 20px 20px;}
+	.folderbox:after {content:" ";display:block;clear:both;}
+	.folderbox dl {width:500px;}
+	.folderbox dl dt {float:left;display:inline-block;width:40%;}
+	.folderbox dl dd {float:left;display:inline-block;width:60%;}
+	.tabletype {width:100%;}
+	.tabletype table {width:100%;table-layout:fixed;color:#555;border:1px solid #e4e4e4;}
+	.tabletype table th {padding:5px 0;background:#f6f6f6;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;}
+	.tabletype table th.l {padding:0 0 0 5px;text-align:left;}
+	.tabletype table td {padding:4px 4px 4px 4px;color:#000;text-align:center;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;vertical-align:top;font-size:12px;}
+	.tabletype table td.l {text-align:left;}
+	.tabletype table td.r {text-align:right;}
+	.tabletype table td.m {vertical-align:middle;}
+	.lstype {width:100%;border-top:1px solid #585858;}
+	.lstype ul li {position:relative;padding:5px;border-bottom:1px solid #ccc;line-height:22px;font-size:12px;}
+	.lstype ul li dl {width:100%;}
+	.lstype ul li dl:after {content:" ";display:block;clear:both;}
+	.lstype ul li dl dt {position:relative;float:left;width:20%;}
+	.lstype ul li dl dd {position:relative;float:left;width:80%;}
+	.lstype ul li dl dd a {position:relative;display:inline-block;width:100%;}
+	.enddate {position:absolute;top:0;right:5px;display:inline-block;color:#888;text-align:right;font-size:12px;line-height:24px;}
+	.bar0 {background-color:none;}
+	.bar1 {background-color:#fff0f0;}
+	.bar2 {background-color:#fffff0;}
+	.bar3 {background-color:#f0fff7;}
+	.bar4 {background-color:#f0f1ff;}
+	.bar5 {background-color:#fef0ff;}
+	.barx{background-color:#fff;}
+	.txt_blue {color:#2465ec;}
+	.txt_white {color:#fff;}
+	.fin {border-radius:2px;background:#efccc6;}
+</style>
+<script type="text/javascript">
+//<![CDATA[
+	$(function(){
+		$(".lstype").hide(0);
+		$(".lstype2").slideDown(800);
+		$(".lstype3").slideDown(800);
+		$(".sti").click(function(){
+			if( $(this).next("div").css('display') == 'none' ){
+				$(this).next("div").slideDown(400);
+			}else{
+				$(this).next("div").slideUp(400);
+			}
+		});
+		$(".folderbox").slideUp(800);
+		$(".foldersti").click(function(){
+			if( $(".folderbox").css('display') == 'none' ){
+				$(".folderbox").slideDown(400);
+			}else{
+				$(".folderbox").slideUp(400);
+			}
+		});
+	});
+	/*새창팝업*/
+	function PopupCenter(popNM, parms, width, height){
+		var sw  = screen.availWidth ;
+		var sh  = screen.availHeight ;
+		px=(sw - width)/2 ;
+		py=(sh - height)/2 ;
+		var set  = 'top=' + py + ',left=' + px ;
+		set += ',width=' + width + ',height=' + height + ',menubar = no, toolbar = no, location = no, status = no, scrollbars = yes, resizable = yes' ;
+		window.name="pop";
+		window.open (popNM + parms , '' , set) ;
+	}
+//]]>
+</script>
+</head>
+<body>
+
+<div id="wrap">
+	<div class="header">
+		<h1><img src="/pjtCom/images/common/h_logo.png" alt="" /></h1>
+	</div>
+	<h2 class="foldersti">- 폴더 네이밍<span> : 실제 작업 시 변경 될 수 있습니다.</span></h2>
+	<div class="folderbox">
+		<div class="tabletype">
+			<table summary="">
+				<caption></caption>
+				<colgroup>
+					<col width="10%" />
+					<col width="45%" />
+					<col width="*" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th colspan="2">메뉴명</th>
+						<th>폴더명</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="l" rowspan="11">WEB</td>
+						<td class="l">메인</td>
+						<td class="l">/</td>
+					</tr>
+					<tr>
+						<td class="l">브랜드 소개</td>
+						<td class="l">/brand/</td>
+					</tr>
+					<tr>
+						<td class="l">인프라</td>
+						<td class="l">/infra/</td>
+					</tr>
+					<tr>
+						<td class="l">상품안내</td>
+						<td class="l">/product/</td>
+					</tr>
+					<tr>
+						<td class="l">고객지원서비스</td>
+						<td class="l">/service/</td>
+					</tr>
+					<tr>
+						<td class="l">홍보센터</td>
+						<td class="l">/pr/</td>
+					</tr>
+					<tr>
+						<td class="l">고객센터</td>
+						<td class="l">/customer/</td>
+					</tr>
+					<tr>
+						<td class="l">마이페이지</td>
+						<td class="l">/mypage/</td>
+					</tr>
+					<tr>
+						<td class="l">멤버</td>
+						<td class="l">/member/</td>
+					</tr>
+					<tr>
+						<td class="l">FOOTER</td>
+						<td class="l">/etc/</td>
+					</tr>
+					<tr>
+						<td class="l">공통파일(css, js, images) 등</td>
+						<td class="l">/pjtCom/</td>
+					</tr>
+					<tr>
+						<td class="l">인클루드파일(header, footer, lnb)</td>
+						<td class="l">/inCom/</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<h2 class="sti sti2">- WEB<span class="enddate">완료일</span></h2>
+	<div class="htmlprocess">
+		<script type="text/javascript">
+			$(function(){
+				var totalfile = $(".frontlist dd > a").length;
+				var finfile =$(".fin").length;
+				var ingfile =totalfile-finfile
+				var processper=(finfile / totalfile) * 100;
+				$(".totalfile").text(totalfile);
+				$(".finfile").text(finfile);
+				$(".ingfile").text(ingfile);
+				$(".processper").text(processper.toFixed(3)); // 소수자리 지정
+			})
+		</script>
+		<style type="text/css">
+		.htmlprocess {}
+		.htmlprocess .htmlprocess_tit {background:#777; color:#fff; font-weight:bold;margin-top:20px; }
+		.htmlprocess table {width: 100%; font-size:13px; margin-top:10px; margin-bottom:30px;}
+		.htmlprocess table th {border:1px solid #ccc; background:#eee;}
+		.htmlprocess table td {border:1px solid #ccc; text-align:right; padding:2px 5px 1px 0;}
+		</style>
+
+		<p class="htmlprocess_tit">HTML 작업공정률</p>
+		<table>
+		<colgroup><col width="150" /><col width="150" /><col width="150" /><col width="150" /><col width="*" /></colgroup>
+			<tr>
+				<th>파일수</th>
+				<th>완료</th>
+				<th>대기</th>
+				<th>작업률</th>
+				<th>기타</th>
+			</tr>
+			<tr>
+				<td class="totalfile"></td>
+				<td class="finfile"></td>
+				<td class="ingfile"></td>
+				<td class="processper"></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<div class="lstype lstype2 frontlist">
+		<ul>
+			<li class="bar0">
+				<dl>
+					<dt><a href="/style_guide.html" target="_blank">GUIDE</a></dt>
+					<dd>
+						<a href="/style_guide.html" target="_blank" >style_guide<span class="txt_white">.dddd</span> <span class="enddate"></span></a><br />
+					</dd>
+				</dl>
+			</li>
+			<li class="bar1">
+				<dl>
+					<dt>메인</dt>
+					<dd>
+						<a href="./index.asp" target="_blank" class="fin">MAIN<span class="enddate">2018.03.20</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar2">
+				<dl>
+					<dt>브랜드 소개</dt>
+					<dd>
+						<a href="./brand/serveq.asp" target="_blank" class="fin" >서브큐소개<span class="enddate">2018.02.28</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./brand/business_circulation.asp" target="_blank" class="fin" >사업소개 - 식자재유통사업<span class="enddate">2018.02.28</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./brand/business_bakery.asp" target="_blank" class="fin">사업소개 - 냉동베이커리사업<span class="enddate">2018.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./brand/business_material.asp" target="_blank" class="fin" >사업소개 - 식품소재사업<span class="enddate">2018.02.28</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./brand/business_consumption.asp" target="_blank" class="fin" >사업소개 - 소비재사업<span class="enddate">2018.02.28</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./brand/business_office.asp" target="_blank" class="fin" >사업소개 - 사업장안내<span class="enddate">2018.02.28</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar3">
+				<dl>
+					<dt>인프라</dt>
+					<dd>
+						<a href="./infra/lab.asp" target="_blank" class="fin">식품연구소<span class="enddate">2017.03.08</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./infra/safety.asp" target="_blank" class="fin">식품안전센터<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./infra/plaza.asp" target="_blank" class="fin">셰프플라자<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./infra/distribute.asp" target="_blank" class="fin">물류시스템<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./infra/oms.asp" target="_blank" class="fin">OMS시스템<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar4">
+				<dl>
+					<dt>상품안내</dt>
+					<dd>
+						<a href="./product/about.asp" target="_blank" class="fin">상품소개<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./product/pb.asp" target="_blank" class="fin">서브큐PB상품<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./product/direct.asp" target="_blank" class="fin">산지직거래 상품<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./product/global.asp" target="_blank" class="fin">글로벌 구매 네트워크<span class="enddate">2017.03.12</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar0">
+				<dl>
+					<dt>고객지원서비스</dt>
+					<dd>
+						<a href="./service/about.asp" target="_blank" class="fin">고객지원서비스 소개<span class="enddate">2017.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe.asp" target="_blank" class="fin">셰프 레시피 메인<span class="enddate">2017.03.05</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_list_western.asp" target="_blank" class="fin">셰프 레시피 - 양식 레시피 목록<span class="enddate">2017.02.27</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_view_western.asp" target="_blank" class="fin">셰프 레시피 - 양식 레시피 상세<span class="enddate">2017.03.05</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_list_chinese.asp" target="_blank" class="fin">셰프 레시피 - 중식 레시피 목록<span class="enddate">2017.02.27</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_view_chinese.asp" target="_blank" class="fin">셰프 레시피 - 중식 레시피 상세<span class="enddate">2017.03.05</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_list_baking.asp" target="_blank" class="fin">셰프 레시피 - 제과제빵 레시피 목록<span class="enddate">2017.02.27</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_view_baking.asp" target="_blank" class="fin">셰프 레시피 - 제과제빵 레시피 상세<span class="enddate">2017.03.05</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_counsel.asp" target="_blank" class="fin">셰프 레시피 - 셰프 1:1 상담 목록<span class="enddate">2018.03.21</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_view_counsel.asp" target="_blank" class="fin">셰프 레시피 - 셰프 1:1 상담 상세<span class="enddate">2018.03.21</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/recipe_edit_counsel.asp" target="_blank" class="fin">셰프 레시피 - 셰프 1:1 상담 등록<span class="enddate">2018.03.21</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/calculator.asp" target="_blank" class="fin">메뉴 원가계산기<span class="enddate">2017.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/calculator_step1.asp" target="_blank" class="fin">메뉴 원가계산기 - STEP.1 계산방법<span class="enddate">2017.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/calculator_step2_recipe_choose.asp" target="_blank" class="fin">메뉴 원가계산기 - STEP.2 레시피 선택<span class="enddate">2017.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/calculator_step2_recipe.asp" target="_blank" class="fin">메뉴 원가계산기 - STEP.2 레시피 목록<span class="enddate">2017.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/calculator_step2_ingredients.asp" target="_blank" class="fin">메뉴 원가계산기 - STEP.2 재료 목록<span class="enddate">2017.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/calculator_step3.asp" target="_blank" class="fin">메뉴 원가계산기 - STEP.3 원가계산<span class="enddate">2017.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/calculator_step4.asp" target="_blank" class="fin">메뉴 원가계산기 - STEP.4 계산결과<span class="enddate">2017.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/seminar_list.asp" target="_blank" class="fin">서브큐 세미나 목록<span class="enddate">2017.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/seminar_view.asp" target="_blank" class="fin">서브큐 세미나 상세<span class="enddate">2017.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/form_list_pop.asp" target="_blank" class="fin">서식창고 - POP 목록<span class="enddate">2018.03.05</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/form_view_pop.asp" target="_blank" class="fin">서식창고 - POP 상세<span class="enddate">2018.03.07</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/form_list_name.asp" target="_blank" class="fin">서식창고 - Name Tag 목록<span class="enddate">2018.03.07</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/form_view_name.asp" target="_blank" class="fin">서식창고 - Name Tag 상세<span class="enddate">2018.03.07</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/form_list_poster.asp" target="_blank" class="fin">서식창고 - 홍보포스터 목록<span class="enddate">2018.03.07</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/form_view_poster.asp" target="_blank" class="fin">서식창고 - 홍보포스터 상세<span class="enddate">2018.03.08</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/magazine_list.asp" target="_blank" class="fin">서브큐 매거진 목록<span class="enddate">2018.03.08</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./service/magazine_view.asp" target="_blank" class="fin">서브큐 매거진 상세<span class="enddate">2018.03.08</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar1">
+				<dl>
+					<dt>홍보센터</dt>
+					<dd>
+						<a href="./pr/press_list.asp" target="_blank" class="fin">보도자료 목록<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./pr/press_view.asp" target="_blank" class="fin">보도자료 상세<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./pr/notice_list.asp" target="_blank" class="fin">공지사항 목록<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./pr/notice_view.asp" target="_blank" class="fin">공지사항 상세<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./pr/event_list_ing.asp" target="_blank" class="fin">이벤트 - 진행중 이벤트 목록<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./pr/event_view_ing.asp" target="_blank" class="fin">이벤트 - 진행중 이벤트 상세<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./pr/event_list_end.asp" target="_blank" class="fin">이벤트 - 지난 이벤트 목록<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar2">
+				<dl>
+					<dt>고객센터</dt>
+					<dd>
+						<a href="./customer/faq.asp" target="_blank" class="fin" >자주 묻는 질문<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./customer/qna_list.asp" target="_blank" class="fin" >문의하기 목록<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./customer/qna_view.asp" target="_blank" class="fin" >문의하기 상세<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./customer/qna_edit.asp" target="_blank" class="fin" >문의하기 등록<span class="enddate">2018.03.14</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./customer/policy.asp" target="_blank" >정책안내<span class="enddate"></span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./customer/location.asp" target="_blank" >오시는 길<span class="enddate"></span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar3">
+				<dl>
+					<dt>마이페이지</dt>
+					<dd>
+						<a href="./mypage/mypage.asp" target="_blank" class="fin" >마이페이지 메인<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/password_ok.asp" target="_blank" class="fin">회원정보 수정 > 비밀번호 확인<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/password_update.asp" target="_blank" class="fin">회원정보 수정 > 비밀번호 변경<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/modify.asp" target="_blank" class="fin">회원정보 수정<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/secession.asp" target="_blank" class="fin">회원 탈퇴<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/scrap.asp" target="_blank" class="fin">나의 스크랩 > 셰프레시피<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/scrap_calc.asp" target="_blank" class="fin">나의 스크랩 > 메뉴 원가계산기<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/scrap_magazine.asp" target="_blank" class="fin">나의 스크랩 > 서브큐 매거진<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/history.asp" target="_blank" class="fin">나의 활동 > 문의하기 <span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./mypage/counsel.asp" target="_blank" class="fin">나의 활동 > 셰프 1:1 상담<span class="enddate">2018.03.16</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar3">
+				<dl>
+					<dt>멤버</dt>
+					<dd>
+						<a href="./member/login.asp" target="_blank" class="fin" >로그인<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/search_id.asp" target="_blank" class="fin" >아이디 찾기<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/search_idresult.asp" target="_blank" class="fin" >아이디 찾기 > 찾기 완료<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/search_pw.asp" target="_blank" class="fin" >비밀번호 찾기<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/password.asp" target="_blank" class="fin" >비밀번호 변경<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/joinuser.asp" target="_blank" class="fin" >회원가입 > 회원가입<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/agree.asp" target="_blank" class="fin" >회원가입 > 이용약관<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/joinform.asp" target="_blank" class="fin" >회원가입 > 회원정보입력<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./member/joinfinish.asp" target="_blank" class="fin" >회원가입 > 가입완료<span class="enddate">2018.02.22</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+			<li class="bar4">
+				<dl>
+					<dt>FOOTER</dt>
+					<dd>
+						<a href="./etc/terms.asp" target="_blank" class="fin" >이용약관<span class="enddate">2018.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./etc/privacy.asp" target="_blank" class="fin" >개인정보취급방침<span class="enddate">2018.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./etc/catalog.asp" target="_blank" >카탈로그<span class="enddate"></span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./etc/sitemap.asp" target="_blank" class="fin" >사이트맵<span class="enddate">2018.03.15</span></a><br /><br /><!-- 완료 후 class="fin" -->
+						<a href="./etc/search.asp" target="_blank" class="fin" >검색결과<span class="enddate">2018.03.19</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+
+			<li class="bar0">
+				<dl>
+					<dt>ADMIN</dt>
+					<dd>
+						<a href="./admin/login.asp" target="_blank" class="fin">ADMIN 로그인<span class="enddate">2018.03.19</span></a><br /><br /><!-- 완료 후 class="fin" -->
+					</dd>
+				</dl>
+			</li>
+
+		</ul>
+	</div>
+</div>
+</body>
+</html>
